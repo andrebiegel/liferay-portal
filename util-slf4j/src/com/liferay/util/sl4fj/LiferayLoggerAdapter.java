@@ -203,7 +203,8 @@ public class LiferayLoggerAdapter
 
 		FormattingTuple formattingTuple = MessageFormatter.arrayFormat(
 			message, arguments);
-
+		
+		_log.setLogWrapperClassName(fqcn);
 		switch (level) {
 			case LocationAwareLogger.DEBUG_INT:
 				_log.debug(formattingTuple.getMessage(), t);
