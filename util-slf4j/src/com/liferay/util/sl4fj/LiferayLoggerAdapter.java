@@ -32,6 +32,7 @@ public class LiferayLoggerAdapter
 
 	public LiferayLoggerAdapter(Log log) {
 		_log = log;
+		_log.setLogWrapperClassName(LiferayLoggerAdapter.class.getName());
 	}
 
 	@Override
@@ -195,7 +196,7 @@ public class LiferayLoggerAdapter
 
 		FormattingTuple formattingTuple = MessageFormatter.arrayFormat(
 			message, arguments);
-
+		_log.setLogWrapperClassName(fqcn);
 		switch (level) {
 			case LocationAwareLogger.DEBUG_INT:
 				_log.debug(formattingTuple.getMessage(), t);
